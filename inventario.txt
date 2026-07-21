@@ -1,0 +1,5 @@
+pocion de curacion:3
+espada corta:1
+arco:1
+flechas:12
+oro:50

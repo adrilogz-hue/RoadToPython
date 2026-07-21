@@ -1,0 +1,4 @@
+Primera nota guardada desde Python.
+Estoy aprendiendo a trabajar con archivos.
+Nueva línea añadida con modo append.
+Hoy he aprendido a guardar texto en archivos
