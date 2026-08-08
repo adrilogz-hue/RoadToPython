@@ -186,3 +186,118 @@ Correcto: `01_funciones_basicas.py`
 Evitar espacios: `f string.py`
 
 Mejor: `f_string.py`
+
+
+# ============================================================
+# EJEMPLO DE USO DE GIT EN UNA EMPRESA
+# ============================================================
+
+# En una empresa normalmente no se trabaja directamente sobre main.
+# main suele representar el código estable o de producción.
+
+# Flujo típico:
+
+# 1. Actualizar tu copia local del proyecto
+# Antes de empezar, traes los últimos cambios del equipo.
+#
+# git checkout main
+# git pull
+
+# 2. Crear una rama para tu tarea
+# Cada ticket o tarea suele tener su propia rama.
+#
+# Ejemplo:
+# ticket: "crear endpoint para consultar pedidos"
+#
+# git checkout -b feature/consulta-pedidos
+
+# 3. Trabajar en el código
+# Modificas archivos, pruebas el programa y compruebas que funciona.
+
+# 4. Revisar cambios
+#
+# git status
+# git diff
+
+# 5. Guardar cambios en commits
+#
+# git add .
+# git commit -m "Añade endpoint para consultar pedidos"
+
+# 6. Subir la rama al repositorio remoto
+#
+# git push origin feature/consulta-pedidos
+
+# 7. Crear una Pull Request
+# En GitHub/GitLab/Bitbucket abres una Pull Request para que otro compañero revise tu código.
+#
+# En la PR normalmente explicas:
+# - qué has cambiado
+# - por qué lo has cambiado
+# - cómo probarlo
+# - si afecta a algo importante
+
+# 8. Revisión de código
+# Un compañero revisa tu código y puede:
+# - aprobarlo
+# - pedir cambios
+# - dejar comentarios
+
+# 9. Corregir comentarios si hace falta
+#
+# Haces cambios nuevos:
+#
+# git add .
+# git commit -m "Corrige validación de pedidos"
+# git push
+
+# 10. Merge a main
+# Cuando la PR está aprobada, se fusiona con main.
+# Normalmente esto lo hace GitHub/GitLab con un botón de "Merge".
+
+
+# ============================================================
+# RESUMEN RÁPIDO DEL FLUJO PROFESIONAL
+# ============================================================
+
+# main
+#   Rama estable del proyecto.
+#
+# feature/nombre-tarea
+#   Rama donde trabajas una tarea concreta.
+#
+# commit
+#   Guarda un conjunto de cambios con un mensaje.
+#
+# push
+#   Sube tu rama a GitHub/GitLab.
+#
+# pull
+#   Baja cambios del repositorio remoto.
+#
+# Pull Request
+#   Solicitud para revisar y unir tu código a main.
+#
+# code review
+#   Revisión del código por parte de otro programador.
+#
+# merge
+#   Unión de tu rama con main.
+
+
+# ============================================================
+# EJEMPLO COMPLETO DE COMANDOS
+# ============================================================
+
+# git checkout main
+# git pull
+# git checkout -b feature/consulta-pedidos
+#
+# trabajar en el código...
+#
+# git status
+# git add .
+# git commit -m "Añade consulta de pedidos"
+# git push origin feature/consulta-pedidos
+#
+# Después se crea la Pull Request desde GitHub/GitLab.

@@ -1,0 +1,17 @@
+REST muy importante
+verbos (retirar crear borrar/ get, put, post, delete, patch) conocer lo basico 
+DOKER importante. Sistema mini dentro de tu pc para poder tener contenido programas versiones y librerias 
+concretas. Ademas poder compartirlo facilmente.
+
+Proyecto: sencillo que conecte con mongo y "sql lite" sencillo. si puedo hacerlo funcionar con doker.
+
+Mlops equipo de ruben. es algo distinto en esta empresa.
+Al hacer front-end pedirle a chatogpt que me lo haga con streamlit (que es python)
+
+Proyecto: Tienda de musica: front end,backend que va a conectar a una base de datos (sql lite),
+ sistema de usuarios con roles (admin y usuario), asistente conversacional (al final del proyecto)
+
+Open ai developers - api keys - para asistente conversacional
+
+Investigar vs code y postman
+
