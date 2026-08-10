@@ -83,7 +83,7 @@ http://localhost:5000
 pedidos_api/
 │
 ├── app.py
-├── pedidos.py
+├── pedidos.json
 ├── requirements.txt
 └── README.md
 ```

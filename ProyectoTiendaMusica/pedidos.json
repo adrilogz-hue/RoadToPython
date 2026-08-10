@@ -1,0 +1,188 @@
+[
+    {
+        "id": 1,
+        "cliente": {
+            "id": 101,
+            "nombre": "Ana García",
+            "email": "ana.garcia@email.com"
+        },
+        "estado": "enviado",
+        "fecha": "2026-08-01",
+        "direccion_envio": {
+            "calle": "Calle Mayor 15",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47001",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 501,
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 1,
+                "precio_unitario": 79.99
+            },
+            {
+                "id": 502,
+                "nombre": "Cable USB-C",
+                "cantidad": 2,
+                "precio_unitario": 12.5
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 104.99
+    },
+    {
+        "id": 2,
+        "cliente": {
+            "id": 102,
+            "nombre": "Carlos López",
+            "email": "carlos.lopez@email.com"
+        },
+        "estado": "procesando",
+        "fecha": "2026-08-04",
+        "direccion_envio": {
+            "calle": "Avenida Salamanca 42",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47014",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 503,
+                "nombre": "Teclado mecánico",
+                "cantidad": 1,
+                "precio_unitario": 89.9
+            }
+        ],
+        "metodo_pago": "paypal",
+        "total": 89.9
+    },
+    {
+        "id": 3,
+        "cliente": {
+            "id": 101,
+            "nombre": "Ana García",
+            "email": "ana.garcia@email.com"
+        },
+        "estado": "entregado",
+        "fecha": "2026-07-20",
+        "direccion_envio": {
+            "calle": "Calle Mayor 15",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47001",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 504,
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 1,
+                "precio_unitario": 39.99
+            },
+            {
+                "id": 505,
+                "nombre": "Alfombrilla",
+                "cantidad": 1,
+                "precio_unitario": 19.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 59.98
+    },
+    {
+        "id": 4,
+        "cliente": {
+            "id": 103,
+            "nombre": "Laura Martín",
+            "email": "laura@email.com"
+        },
+        "estado": "pendiente",
+        "fecha": "2026-08-07",
+        "direccion_envio": {
+            "calle": "Calle Santiago 20",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47001",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 506,
+                "nombre": "Monitor 27 pulgadas",
+                "cantidad": 1,
+                "precio_unitario": 249.99
+            },
+            {
+                "id": 507,
+                "nombre": "Cable HDMI",
+                "cantidad": 2,
+                "precio_unitario": 9.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 269.97
+    },
+    {
+        "id": 5,
+        "cliente": {
+            "id": 103,
+            "nombre": "Laura Martín",
+            "email": "laura@email.com"
+        },
+        "estado": "pendiente",
+        "fecha": "2026-08-07",
+        "direccion_envio": {
+            "calle": "Calle Santiago 20",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47001",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 506,
+                "nombre": "Monitor 27 pulgadas",
+                "cantidad": 1,
+                "precio_unitario": 249.99
+            },
+            {
+                "id": 507,
+                "nombre": "Cable HDMI",
+                "cantidad": 2,
+                "precio_unitario": 9.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 269.97
+    },
+    {
+        "id": 6,
+        "cliente": {
+            "id": 103,
+            "nombre": "Laura Martín",
+            "email": "laura@email.com"
+        },
+        "estado": "pendiente",
+        "fecha": "2026-08-07",
+        "direccion_envio": {
+            "calle": "Calle Santiago 20",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47001",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 506,
+                "nombre": "Monitor 27 pulgadas",
+                "cantidad": 1,
+                "precio_unitario": 249.99
+            },
+            {
+                "id": 507,
+                "nombre": "Cable HDMI",
+                "cantidad": 2,
+                "precio_unitario": 9.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 269.97
+    }
+]

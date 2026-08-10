@@ -142,27 +142,6 @@ La sangría indica qué líneas pertenecen a un bloque `if`, `elif`, `else`, `fo
 Después de `:` normalmente la siguiente línea va indentada.
 
 
-
-## Git básico
-
-`git status` — Muestra el estado actual del repositorio.
-
-`git add .` — Prepara todos los archivos modificados para el próximo commit.
-
-`git add archivo.py` — Prepara un archivo concreto para el próximo commit.
-
-`git commit -m "mensaje"` — Guarda una versión del proyecto en Git.
-
-`git push` — Sube los commits locales a GitHub.
-
-`git init` — Crea un repositorio Git en la carpeta actual.
-
-`git branch -M main` — Cambia el nombre de la rama principal a `main`.
-
-`git remote add origin URL` — Conecta el repositorio local con GitHub.
-
-
-
 ## Terminal
 
 `cd carpeta` — Entra en una carpeta.
@@ -186,6 +165,205 @@ Correcto: `01_funciones_basicas.py`
 Evitar espacios: `f string.py`
 
 Mejor: `f_string.py`
+
+
+===========================================================
+## Git básico
+===========================================================
+
+`git status` — Muestra el estado actual del repositorio.
+
+`git add .` — Prepara todos los archivos modificados para el próximo commit.
+
+`git add archivo.py` — Prepara un archivo concreto para el próximo commit.
+
+`git commit -m "mensaje"` — Guarda una versión del proyecto en Git.
+
+`git push` — Sube los commits locales a GitHub.
+
+`git init` — Crea un repositorio Git en la carpeta actual.
+
+`git branch -M main` — Cambia el nombre de la rama principal a `main`.
+
+`git remote add origin URL` — Conecta el repositorio local con GitHub.
+
+
+# ============================================================
+# USO INTERMEDIO DE GIT EN EMPRESA
+# ============================================================
+
+# Situación típica:
+#
+# Estás trabajando en tu rama:
+#
+# feature/consulta-pedidos
+#
+# Pero mientras tú trabajas, otros compañeros han subido cambios nuevos a main.
+# Antes de terminar tu tarea o abrir la Pull Request, conviene actualizar tu rama
+# con los últimos cambios de main.
+
+
+# ============================================================
+# 1. ACTUALIZAR MAIN
+# ============================================================
+
+# Primero volvemos a main y traemos los últimos cambios del repositorio remoto.
+
+# git checkout main
+# git pull
+
+
+# ============================================================
+# 2. VOLVER A TU RAMA DE TRABAJO
+# ============================================================
+
+# Después vuelves a tu rama.
+
+# git checkout feature/consulta-pedidos
+
+
+# ============================================================
+# 3. TRAER LOS CAMBIOS DE MAIN A TU RAMA
+# ============================================================
+
+# Hay dos formas habituales: merge o rebase.
+
+
+# ------------------------------------------------------------
+# OPCIÓN A: MERGE
+# ------------------------------------------------------------
+
+# git merge main
+
+# Esto une los cambios de main dentro de tu rama.
+#
+# Ventaja:
+# - Es más fácil de entender.
+# - Es más seguro para principiantes.
+#
+# Desventaja:
+# - Puede crear commits extra de merge.
+# - El historial puede quedar menos limpio.
+
+
+# ------------------------------------------------------------
+# OPCIÓN B: REBASE
+# ------------------------------------------------------------
+
+# git rebase main
+
+# Esto "recoloca" tus commits encima de la versión más reciente de main.
+#
+# Ventaja:
+# - El historial queda más limpio y lineal.
+#
+# Desventaja:
+# - Es más delicado.
+# - Si no se entiende bien, puede liar el historial.
+#
+# Como junior, si la empresa no te indica otra cosa, normalmente es más seguro
+# usar merge al principio.
+
+
+# ============================================================
+# 4. POSIBLE CONFLICTO
+# ============================================================
+
+# Un conflicto ocurre cuando Git no sabe qué cambio conservar.
+#
+# Ejemplo:
+# Tú modificaste una línea de app.py.
+# Otro compañero modificó esa misma línea en main.
+#
+# Git no puede decidir automáticamente cuál es la correcta.
+
+
+# Flujo básico ante conflicto:
+#
+# 1. Abrir los archivos marcados con conflicto.
+# 2. Revisar las marcas:
+#
+# <<<<<<< HEAD
+# tu versión
+# =======
+# versión de main
+# >>>>>>> main
+#
+# 3. Dejar el código final correcto.
+# 4. Guardar el archivo.
+# 5. Añadir el archivo corregido.
+#
+# git add archivo_con_conflicto.py
+#
+# 6. Continuar el proceso.
+
+
+# Si estabas haciendo merge:
+#
+# git commit
+#
+# o, a veces:
+#
+# git merge --continue
+
+
+# Si estabas haciendo rebase:
+#
+# git rebase --continue
+
+
+# ============================================================
+# 5. SUBIR TU RAMA ACTUALIZADA
+# ============================================================
+
+# Después de resolver conflictos y probar que todo funciona:
+
+# git status
+# git push origin feature/consulta-pedidos
+
+
+# Si has hecho rebase, puede que Git te pida:
+#
+# git push --force-with-lease
+#
+# Importante:
+# --force-with-lease es más seguro que --force.
+# Aun así, no lo uses sin entenderlo o sin que te lo indiquen.
+
+
+# ============================================================
+# RESUMEN PROFESIONAL
+# ============================================================
+
+# Flujo intermedio típico:
+#
+# git checkout main
+# git pull
+# git checkout feature/consulta-pedidos
+# git merge main
+#
+# resolver conflictos si aparecen
+#
+# git status
+# git add .
+# git commit
+# git push origin feature/consulta-pedidos
+
+
+# ============================================================
+# IDEA CLAVE
+# ============================================================
+
+# En una empresa tu rama no vive aislada.
+# Mientras tú trabajas, main sigue cambiando.
+#
+# Por eso a veces tienes que actualizar tu rama con los últimos cambios
+# antes de abrir o terminar una Pull Request.
+#
+# Esto ayuda a:
+# - evitar conflictos grandes al final
+# - comprobar que tu código funciona con la versión actual del proyecto
+# - facilitar la revisión de la Pull Request
 
 
 # ============================================================
