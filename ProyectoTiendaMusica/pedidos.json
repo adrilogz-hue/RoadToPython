@@ -18,12 +18,14 @@
             {
                 "id": 501,
                 "nombre": "Auriculares Bluetooth",
+                "categoria": "audio",
                 "cantidad": 1,
                 "precio_unitario": 79.99
             },
             {
                 "id": 502,
                 "nombre": "Cable USB-C",
+                "categoria": "cables",
                 "cantidad": 2,
                 "precio_unitario": 12.5
             }
@@ -32,40 +34,130 @@
         "total": 104.99
     },
     {
-        "id": 2,
+        "id": 3,
         "cliente": {
-            "id": 102,
-            "nombre": "Carlos López",
-            "email": "carlos.lopez@email.com"
+            "id": 103,
+            "nombre": "Laura Martín",
+            "email": "laura@email.com"
         },
-        "estado": "procesando",
-        "fecha": "2026-08-04",
+        "estado": "entregado",
+        "fecha": "2026-07-20",
         "direccion_envio": {
-            "calle": "Avenida Salamanca 42",
+            "calle": "Calle Santiago 20",
             "ciudad": "Valladolid",
-            "codigo_postal": "47014",
+            "codigo_postal": "47001",
             "pais": "España"
         },
         "productos": [
             {
-                "id": 503,
-                "nombre": "Teclado mecánico",
+                "id": 506,
+                "nombre": "Altavoces de estudio",
+                "categoria": "audio",
+                "cantidad": 2,
+                "precio_unitario": 129.99
+            },
+            {
+                "id": 507,
+                "nombre": "Cable XLR",
+                "categoria": "cables",
+                "cantidad": 2,
+                "precio_unitario": 11.5
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 282.98
+    },
+    {
+        "id": 4,
+        "cliente": {
+            "id": 104,
+            "nombre": "David Sánchez",
+            "email": "david@email.com"
+        },
+        "estado": "pendiente",
+        "fecha": "2026-08-05",
+        "direccion_envio": {
+            "calle": "Paseo Zorrilla 80",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47006",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 508,
+                "nombre": "Guitarra acústica",
+                "categoria": "instrumentos_cuerda",
                 "cantidad": 1,
-                "precio_unitario": 89.9
+                "precio_unitario": 299.99
+            },
+            {
+                "id": 509,
+                "nombre": "Juego de cuerdas guitarra acústica",
+                "categoria": "accesorios",
+                "cantidad": 3,
+                "precio_unitario": 8.99
+            },
+            {
+                "id": 510,
+                "nombre": "Afinador digital",
+                "categoria": "accesorios",
+                "cantidad": 1,
+                "precio_unitario": 19.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 346.95
+    },
+    {
+        "id": 5,
+        "cliente": {
+            "id": 105,
+            "nombre": "Marta Rodríguez",
+            "email": "marta@email.com"
+        },
+        "estado": "enviado",
+        "fecha": "2026-08-06",
+        "direccion_envio": {
+            "calle": "Calle Mantería 12",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47004",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 511,
+                "nombre": "Teclado MIDI 49 teclas",
+                "categoria": "instrumentos_teclado",
+                "cantidad": 1,
+                "precio_unitario": 179.99
+            },
+            {
+                "id": 512,
+                "nombre": "Pedal Sustain",
+                "categoria": "accesorios",
+                "cantidad": 1,
+                "precio_unitario": 29.99
+            },
+            {
+                "id": 513,
+                "nombre": "Cable USB MIDI",
+                "categoria": "cables",
+                "cantidad": 1,
+                "precio_unitario": 15.99
             }
         ],
         "metodo_pago": "paypal",
-        "total": 89.9
+        "total": 225.97
     },
     {
-        "id": 3,
+        "id": 6,
         "cliente": {
             "id": 101,
             "nombre": "Ana García",
             "email": "ana.garcia@email.com"
         },
-        "estado": "entregado",
-        "fecha": "2026-07-20",
+        "estado": "procesando",
+        "fecha": "2026-08-07",
         "direccion_envio": {
             "calle": "Calle Mayor 15",
             "ciudad": "Valladolid",
@@ -74,115 +166,267 @@
         },
         "productos": [
             {
-                "id": 504,
-                "nombre": "Ratón inalámbrico",
+                "id": 514,
+                "nombre": "Micrófono de condensador",
+                "categoria": "grabacion",
                 "cantidad": 1,
-                "precio_unitario": 39.99
+                "precio_unitario": 119.99
             },
             {
-                "id": 505,
-                "nombre": "Alfombrilla",
+                "id": 515,
+                "nombre": "Soporte para micrófono",
+                "categoria": "accesorios",
                 "cantidad": 1,
-                "precio_unitario": 19.99
+                "precio_unitario": 34.99
+            },
+            {
+                "id": 516,
+                "nombre": "Cable XLR 5 metros",
+                "categoria": "cables",
+                "cantidad": 1,
+                "precio_unitario": 18.99
             }
         ],
         "metodo_pago": "tarjeta",
-        "total": 59.98
+        "total": 173.97
     },
     {
-        "id": 4,
+        "id": 7,
         "cliente": {
-            "id": 103,
-            "nombre": "Laura Martín",
-            "email": "laura@email.com"
+            "id": 106,
+            "nombre": "Javier Alonso",
+            "email": "javier@email.com"
         },
-        "estado": "pendiente",
-        "fecha": "2026-08-07",
+        "estado": "entregado",
+        "fecha": "2026-07-28",
         "direccion_envio": {
-            "calle": "Calle Santiago 20",
+            "calle": "Avenida Segovia 33",
             "ciudad": "Valladolid",
-            "codigo_postal": "47001",
+            "codigo_postal": "47013",
             "pais": "España"
         },
         "productos": [
             {
-                "id": 506,
-                "nombre": "Monitor 27 pulgadas",
+                "id": 517,
+                "nombre": "Bajo eléctrico",
+                "categoria": "instrumentos_cuerda",
+                "cantidad": 1,
+                "precio_unitario": 389.99
+            },
+            {
+                "id": 518,
+                "nombre": "Amplificador de bajo",
+                "categoria": "audio",
                 "cantidad": 1,
                 "precio_unitario": 249.99
             },
             {
-                "id": 507,
-                "nombre": "Cable HDMI",
+                "id": 519,
+                "nombre": "Cable Jack",
+                "categoria": "cables",
+                "cantidad": 1,
+                "precio_unitario": 14.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 654.97
+    },
+    {
+        "id": 8,
+        "cliente": {
+            "id": 107,
+            "nombre": "Elena Pérez",
+            "email": "elena@email.com"
+        },
+        "estado": "pendiente",
+        "fecha": "2026-08-08",
+        "direccion_envio": {
+            "calle": "Calle Labradores 24",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47004",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 520,
+                "nombre": "Auriculares de estudio",
+                "categoria": "audio",
+                "cantidad": 1,
+                "precio_unitario": 149.99
+            },
+            {
+                "id": 521,
+                "nombre": "Interfaz de audio USB",
+                "categoria": "grabacion",
+                "cantidad": 1,
+                "precio_unitario": 129.99
+            }
+        ],
+        "metodo_pago": "paypal",
+        "total": 279.98
+    },
+    {
+        "id": 9,
+        "cliente": {
+            "id": 102,
+            "nombre": "Carlos López",
+            "email": "carlos.lopez@email.com"
+        },
+        "estado": "enviado",
+        "fecha": "2026-08-09",
+        "direccion_envio": {
+            "calle": "Avenida Salamanca 42",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47014",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 522,
+                "nombre": "Ukelele",
+                "categoria": "instrumentos_cuerda",
+                "cantidad": 1,
+                "precio_unitario": 89.99
+            },
+            {
+                "id": 523,
+                "nombre": "Funda para ukelele",
+                "categoria": "accesorios",
+                "cantidad": 1,
+                "precio_unitario": 24.99
+            }
+        ],
+        "metodo_pago": "tarjeta",
+        "total": 114.98
+    },
+    {
+        "id": 10,
+        "cliente": {
+            "id": 108,
+            "nombre": "Pablo Gómez",
+            "email": "pablo@email.com"
+        },
+        "estado": "procesando",
+        "fecha": "2026-08-10",
+        "direccion_envio": {
+            "calle": "Calle Ferrari 7",
+            "ciudad": "Valladolid",
+            "codigo_postal": "47002",
+            "pais": "España"
+        },
+        "productos": [
+            {
+                "id": 524,
+                "nombre": "Batería electrónica",
+                "categoria": "percusion",
+                "cantidad": 1,
+                "precio_unitario": 599.99
+            },
+            {
+                "id": 525,
+                "nombre": "Auriculares para batería",
+                "categoria": "audio",
+                "cantidad": 1,
+                "precio_unitario": 69.99
+            },
+            {
+                "id": 526,
+                "nombre": "Baquetas",
+                "categoria": "accesorios",
                 "cantidad": 2,
                 "precio_unitario": 9.99
             }
         ],
         "metodo_pago": "tarjeta",
-        "total": 269.97
+        "total": 689.96
     },
     {
-        "id": 5,
+        "id": 11,
         "cliente": {
-            "id": 103,
-            "nombre": "Laura Martín",
-            "email": "laura@email.com"
+            "id": 109,
+            "nombre": "Lucía Fernández",
+            "email": "lucia@email.com"
         },
-        "estado": "pendiente",
-        "fecha": "2026-08-07",
+        "estado": "entregado",
+        "fecha": "2026-07-15",
         "direccion_envio": {
-            "calle": "Calle Santiago 20",
+            "calle": "Calle Teresa Gil 18",
             "ciudad": "Valladolid",
-            "codigo_postal": "47001",
+            "codigo_postal": "47002",
             "pais": "España"
         },
         "productos": [
             {
-                "id": 506,
-                "nombre": "Monitor 27 pulgadas",
+                "id": 527,
+                "nombre": "Piano digital",
+                "categoria": "instrumentos_teclado",
                 "cantidad": 1,
-                "precio_unitario": 249.99
+                "precio_unitario": 749.99
             },
             {
-                "id": 507,
-                "nombre": "Cable HDMI",
-                "cantidad": 2,
-                "precio_unitario": 9.99
+                "id": 528,
+                "nombre": "Banqueta para piano",
+                "categoria": "accesorios",
+                "cantidad": 1,
+                "precio_unitario": 59.99
+            },
+            {
+                "id": 529,
+                "nombre": "Auriculares cerrados",
+                "categoria": "audio",
+                "cantidad": 1,
+                "precio_unitario": 89.99
             }
         ],
-        "metodo_pago": "tarjeta",
-        "total": 269.97
+        "metodo_pago": "transferencia",
+        "total": 899.97
     },
     {
-        "id": 6,
+        "id": 12,
         "cliente": {
-            "id": 103,
-            "nombre": "Laura Martín",
-            "email": "laura@email.com"
+            "id": 110,
+            "nombre": "Sergio Ruiz",
+            "email": "sergio@email.com"
         },
         "estado": "pendiente",
-        "fecha": "2026-08-07",
+        "fecha": "2026-08-10",
         "direccion_envio": {
-            "calle": "Calle Santiago 20",
+            "calle": "Calle Recondo 9",
             "ciudad": "Valladolid",
-            "codigo_postal": "47001",
+            "codigo_postal": "47007",
             "pais": "España"
         },
         "productos": [
             {
-                "id": 506,
-                "nombre": "Monitor 27 pulgadas",
+                "id": 530,
+                "nombre": "Micrófono dinámico",
+                "categoria": "grabacion",
+                "cantidad": 2,
+                "precio_unitario": 99.99
+            },
+            {
+                "id": 531,
+                "nombre": "Mesa de mezclas",
+                "categoria": "grabacion",
                 "cantidad": 1,
                 "precio_unitario": 249.99
             },
             {
-                "id": 507,
-                "nombre": "Cable HDMI",
+                "id": 532,
+                "nombre": "Altavoz activo",
+                "categoria": "audio",
                 "cantidad": 2,
-                "precio_unitario": 9.99
+                "precio_unitario": 199.99
+            },
+            {
+                "id": 533,
+                "nombre": "Cable XLR",
+                "categoria": "cables",
+                "cantidad": 4,
+                "precio_unitario": 12.5
             }
         ],
-        "metodo_pago": "tarjeta",
-        "total": 269.97
+        "metodo_pago": "transferencia",
+        "total": 899.95
     }
 ]

@@ -92,7 +92,7 @@ def inicio():
         # disponibles en nuestra API.
         "endpoints": {
             "GET /pedidos":
-                "Obtener todos los pedidos",
+                "Obtener todos los pedidos o filtrarlos por estado y categoría",
 
             "GET /pedidos/<id>":
                 "Obtener un pedido concreto",
@@ -128,6 +128,10 @@ def inicio():
 # También permite filtrar por estado:
 #
 # GET http://localhost:5000/pedidos?estado=enviado
+#
+# También permite filtrar por categoría de producto:
+#
+# GET http://localhost:5000/pedidos?categoria=audio
 @app.route("/pedidos", methods=["GET"])
 def obtener_pedidos():
 
@@ -144,9 +148,10 @@ def obtener_pedidos():
     #
     # "enviado"
     estado = request.args.get("estado")
+    categoria = request.args.get("categoria")
 
-    # Comprobamos si el usuario ha enviado el parámetro estado.
-    if estado:
+    # Comprobamos si el usuario ha enviado algún filtro.
+    if estado or categoria:
 
         # Creamos una nueva lista únicamente con los pedidos
         # cuyo estado coincida con el estado solicitado.
@@ -156,13 +161,19 @@ def obtener_pedidos():
             pedido
             for pedido in pedidos
 
-            # Usamos lower() para ignorar diferencias entre
-            # mayúsculas y minúsculas.
-            #
-            # Por ejemplo:
-            #
-            # "ENVIADO" == "enviado"
-            if pedido["estado"].lower() == estado.lower()
+            # El estado debe coincidir si se ha solicitado.
+            # La categoría coincide si aparece en alguno de los productos.
+            # Usamos lower() para ignorar mayúsculas y minúsculas.
+            if (
+                (not estado or pedido["estado"].lower() == estado.lower())
+                and (
+                    not categoria
+                    or any(
+                        producto["categoria"].lower() == categoria.lower()
+                        for producto in pedido["productos"]
+                    )
+                )
+            )
         ]
 
         # Devolvemos los pedidos filtrados en formato JSON.
