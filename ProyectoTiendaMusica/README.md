@@ -12,12 +12,14 @@ Este proyecto sirve como ejemplo para aprender a desarrollar servicios REST util
 - Obtener un pedido por su identificador.
 - Obtener todos los pedidos de un cliente.
 - Filtrar pedidos por estado.
+- Filtrar pedidos por categoría de producto.
 - Crear nuevos pedidos.
 - Modificar completamente un pedido.
 - Modificar parcialmente un pedido.
 - Eliminar pedidos.
+- Validar cliente, dirección, productos y campos del pedido antes de guardar.
 
-Actualmente la aplicación utiliza una lista en memoria como almacenamiento de datos, por lo que cualquier modificación se perderá al reiniciar el servidor.
+Actualmente la aplicación guarda los pedidos en el archivo `pedidos.json`, por lo que las modificaciones se mantienen entre reinicios del servidor.
 
 ---
 
@@ -112,6 +114,7 @@ pedidos_api/
         {
             "id": 501,
             "nombre": "Auriculares",
+            "categoria": "audio",
             "cantidad": 1,
             "precio_unitario": 79.99
         }
@@ -184,6 +187,14 @@ GET /pedidos?estado=enviado
 
 ---
 
+## Filtrar por categoría
+
+```
+GET /pedidos?categoria=audio
+```
+
+---
+
 ## Crear un pedido
 
 ```
@@ -211,6 +222,7 @@ Ejemplo de cuerpo:
         {
             "id": 600,
             "nombre": "Monitor",
+            "categoria": "informática",
             "cantidad": 1,
             "precio_unitario": 250
         }
@@ -238,6 +250,8 @@ Ejemplo
 ```
 PUT /pedidos/2
 ```
+
+> El cuerpo JSON se valida antes de actualizar el pedido. Si faltan campos obligatorios o los valores son incorrectos, la API responde con `400 Bad Request`.
 
 ---
 

@@ -61,6 +61,136 @@ def buscar_pedido(pedido_id):
     return None
 
 
+def validar_cliente(cliente):
+    """Valida la estructura del cliente de un pedido."""
+    if not isinstance(cliente, dict):
+        return False, "El cliente debe ser un objeto JSON"
+
+    campos_obligatorios = ["id", "nombre", "email"]
+    for campo in campos_obligatorios:
+        if campo not in cliente:
+            return False, f"Falta el campo obligatorio del cliente: {campo}"
+
+    if not isinstance(cliente["id"], int):
+        return False, "El id del cliente debe ser un número entero"
+
+    if not isinstance(cliente["nombre"], str) or not cliente["nombre"].strip():
+        return False, "El nombre del cliente debe ser una cadena no vacía"
+
+    email = cliente["email"]
+    if not isinstance(email, str) or "@" not in email or "." not in email.split("@")[-1]:
+        return False, "El email del cliente no tiene un formato válido"
+
+    return True, None
+
+
+def validar_direccion(direccion):
+    """Valida la dirección de envío de un pedido."""
+    if not isinstance(direccion, dict):
+        return False, "La dirección de envío debe ser un objeto JSON"
+
+    campos_obligatorios = ["calle", "ciudad", "codigo_postal", "pais"]
+    for campo in campos_obligatorios:
+        if campo not in direccion:
+            return False, f"Falta el campo obligatorio de la dirección: {campo}"
+
+        valor = direccion[campo]
+        if not isinstance(valor, str) or not valor.strip():
+            return False, f"El campo '{campo}' de la dirección debe ser una cadena no vacía"
+
+    if len(direccion["codigo_postal"].strip()) < 3:
+        return False, "El código postal debe tener al menos 3 caracteres"
+
+    return True, None
+
+
+def validar_producto(producto):
+    """Valida un producto dentro de un pedido."""
+    if not isinstance(producto, dict):
+        return False, "Cada producto debe ser un objeto JSON"
+
+    campos_obligatorios = ["id", "nombre", "categoria", "cantidad", "precio_unitario"]
+    for campo in campos_obligatorios:
+        if campo not in producto:
+            return False, f"Falta el campo obligatorio del producto: {campo}"
+
+    if not isinstance(producto["id"], int):
+        return False, "El id del producto debe ser un número entero"
+
+    if not isinstance(producto["nombre"], str) or not producto["nombre"].strip():
+        return False, "El nombre del producto debe ser una cadena no vacía"
+
+    if not isinstance(producto["categoria"], str) or not producto["categoria"].strip():
+        return False, "La categoría del producto debe ser una cadena no vacía"
+
+    if not isinstance(producto["cantidad"], int) or producto["cantidad"] <= 0:
+        return False, "La cantidad del producto debe ser un entero mayor que cero"
+
+    precio = producto["precio_unitario"]
+    if not isinstance(precio, (int, float)) or precio < 0:
+        return False, "El precio unitario del producto debe ser un número mayor o igual a cero"
+
+    return True, None
+
+
+def validar_pedido(datos, require_all=True):
+    """Valida los datos completos o parciales de un pedido."""
+    if not isinstance(datos, dict):
+        return False, "Los datos del pedido deben ser un objeto JSON"
+
+    campos_obligatorios = [
+        "cliente",
+        "estado",
+        "fecha",
+        "direccion_envio",
+        "productos",
+        "metodo_pago"
+    ]
+
+    campos_permitidos = set(campos_obligatorios)
+
+    if require_all:
+        for campo in campos_obligatorios:
+            if campo not in datos:
+                return False, f"Falta el campo obligatorio: {campo}"
+
+    for campo in datos:
+        if campo not in campos_permitidos:
+            return False, f"No se puede procesar el campo desconocido: {campo}"
+
+    if "cliente" in datos:
+        valido, mensaje = validar_cliente(datos["cliente"])
+        if not valido:
+            return False, mensaje
+
+    if "direccion_envio" in datos:
+        valido, mensaje = validar_direccion(datos["direccion_envio"])
+        if not valido:
+            return False, mensaje
+
+    if "productos" in datos:
+        if not isinstance(datos["productos"], list) or not datos["productos"]:
+            return False, "Productos debe ser una lista no vacía"
+        for producto in datos["productos"]:
+            valido, mensaje = validar_producto(producto)
+            if not valido:
+                return False, mensaje
+
+    if "estado" in datos:
+        if not isinstance(datos["estado"], str) or not datos["estado"].strip():
+            return False, "El estado del pedido debe ser una cadena no vacía"
+
+    if "fecha" in datos:
+        if not isinstance(datos["fecha"], str) or not datos["fecha"].strip():
+            return False, "La fecha del pedido debe ser una cadena no vacía"
+
+    if "metodo_pago" in datos:
+        if not isinstance(datos["metodo_pago"], str) or not datos["metodo_pago"].strip():
+            return False, "El método de pago debe ser una cadena no vacía"
+
+    return True, None
+
+
 # =========================================================
 # GET /
 # =========================================================
@@ -306,28 +436,9 @@ def crear_pedido():
             "error": "Debes enviar los datos del pedido en formato JSON"
         }), 400
 
-    # Creamos una lista con los campos que consideramos
-    # obligatorios para poder crear un pedido.
-    campos_obligatorios = [
-        "cliente",
-        "estado",
-        "fecha",
-        "direccion_envio",
-        "productos",
-        "metodo_pago"
-    ]
-
-    # Recorremos los campos obligatorios.
-    for campo in campos_obligatorios:
-
-        # Comprobamos si cada campo existe en los datos
-        # enviados por el cliente.
-        if campo not in datos:
-
-            # Si falta alguno, devolvemos error 400.
-            return jsonify({
-                "error": f"Falta el campo obligatorio: {campo}"
-            }), 400
+    valido, mensaje = validar_pedido(datos)
+    if not valido:
+        return jsonify({"error": mensaje}), 400
 
     # Ahora necesitamos generar un ID para el nuevo pedido.
     #
@@ -446,25 +557,9 @@ def modificar_pedido(pedido_id):
             "error": "No se han enviado datos"
         }), 400
 
-    # Como PUT sustituye completamente el recurso,
-    # exigimos todos estos campos.
-    campos_obligatorios = [
-        "cliente",
-        "estado",
-        "fecha",
-        "direccion_envio",
-        "productos",
-        "metodo_pago"
-    ]
-
-    # Comprobamos uno a uno los campos obligatorios.
-    for campo in campos_obligatorios:
-
-        if campo not in datos:
-
-            return jsonify({
-                "error": f"Falta el campo obligatorio: {campo}"
-            }), 400
+    valido, mensaje = validar_pedido(datos)
+    if not valido:
+        return jsonify({"error": mensaje}), 400
 
     # Calculamos nuevamente el precio total
     # de todos los productos.
@@ -553,6 +648,10 @@ def modificar_parcialmente_pedido(pedido_id):
         return jsonify({
             "error": "No se han enviado datos"
         }), 400
+
+    valido, mensaje = validar_pedido(datos, require_all=False)
+    if not valido:
+        return jsonify({"error": mensaje}), 400
 
     # Definimos qué campos permitimos modificar.
     #
